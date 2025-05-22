@@ -285,9 +285,6 @@
     });
 
     document.getElementById('voltar').addEventListener('click', () => {
-      while (allOffers.length > initialOffers.length) {
-        allOffers.pop();
-      }
       displayedOffers = [...initialOffers];
       renderOffers();
       document.getElementById('verMais').style.display = 'inline-block';
@@ -295,8 +292,8 @@
     });
 
     document.getElementById('searchInput').addEventListener('input', (e) => {
-      const value = e.target.value.toLowerCase();
-      displayedOffers = allOffers.filter(offer => offer.title.toLowerCase().includes(value));
+      const term = e.target.value.toLowerCase();
+      displayedOffers = allOffers.filter(offer => offer.title.toLowerCase().includes(term));
       renderOffers();
     });
 
@@ -305,4 +302,3 @@
   </script>
 </body>
 </html>
-
